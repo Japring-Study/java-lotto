@@ -4,9 +4,9 @@
   - [x] 여섯 개인지 검증 - validateCounts()
   - [x] 로또 번호에 중복된 숫자가 있는지 검증 - validateDuplication()
   - [x] 정답과 비교 후 등수 반환 - calculateRank()
+  - [ ] 랜덤한 값 생성자 - Lotto()
 - [ ] 로또 판매기 Seller
   - [ ] 금액에 받아 구매 가능한 로또 개수 반환 - calculateLottoCount()
-  - [ ] 로또 발행 - getLotto()
   - [ ] 개수만큼 로또 발행 - getLottos()
   - [ ] 로또 당첨 통계 반환 - getResult()
   - [ ] 수익률 계산 - calculateRate()
