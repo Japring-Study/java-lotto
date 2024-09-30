@@ -3,6 +3,8 @@ package lotto;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Seller {
 
@@ -21,7 +23,9 @@ public class Seller {
     }
 
     public List<Lotto> getLottos(int count) {
-        return null;
+        return IntStream.range(0, count)
+                .mapToObj(i -> getLotto())
+                .collect(Collectors.toList());
     }
 
     public List<Integer> getResult(List<Lotto> lottos) {
