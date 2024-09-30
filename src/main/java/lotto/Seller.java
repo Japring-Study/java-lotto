@@ -15,7 +15,7 @@ public class Seller {
     }
 
     public int calculateLottoCount(int money) {
-        return 0;
+        return money / lottoPrice;
     }
 
     public Lotto getLotto() {
