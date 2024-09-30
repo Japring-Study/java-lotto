@@ -8,7 +8,7 @@
   - [x] 금액에 받아 구매 가능한 로또 개수 반환 - calculateLottoCount()
   - [x] 로또 발행 - getLotto()
   - [x] 개수만큼 로또 발행 - getLottos()
-  - [ ] 로또 당첨 통계 반환 - getResult()
+  - [x] 로또 당첨 통계 반환 - getResult()
   - [ ] 수익률 계산 - calculateRate()
 - [ ] UI
   - [ ] 구입금액 입력받기 - receivePurchaseMoney()

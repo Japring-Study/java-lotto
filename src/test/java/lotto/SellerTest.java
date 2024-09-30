@@ -72,7 +72,7 @@ class SellerTest {
         Seller seller = new Seller(lottoPrice);
 
         //when
-        List<Integer> result = seller.getResult(List.of());
+        List<Integer> result = seller.getResult(List.of(), List.of(), -1);
 
         //then
         assertThat(result.size()).isEqualTo(6);
@@ -86,12 +86,13 @@ class SellerTest {
         List<Integer> second = List.of(8, 21, 23, 41, 42, 44);
         final int lottoPrice = 1_000;
         Seller seller = new Seller(lottoPrice);
-        List<Lotto> lottos = seller.getLottos(2);
 
         assertRandomUniqueNumbersInRangeTest(
                 () -> {
+                    List<Lotto> lottos = seller.getLottos(2);
+
                     //when
-                    List<Integer> result = seller.getResult(lottos);
+                    List<Integer> result = seller.getResult(lottos, answers, 44);
 
                     //then
                     assertThat(result.equals(List.of(1, 1, 0, 0, 0, 0))).isTrue();

@@ -2,6 +2,7 @@ package lotto;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -28,8 +29,14 @@ public class Seller {
                 .collect(Collectors.toList());
     }
 
-    public List<Integer> getResult(List<Lotto> lottos) {
-        return null;
+    public List<Integer> getResult(List<Lotto> lottos, List<Integer> answers, int bonus) {
+        List<Integer> result = new ArrayList<>(List.of(0, 0, 0, 0, 0, 0));
+
+        for (Lotto lotto: lottos) {
+            int index = lotto.calculateRank(answers, bonus) - 1;
+            result.set(index, result.get(index) + 1);
+        }
+        return result;
     }
 
     public double calculateRate(List<Integer> ranks, int count) {
