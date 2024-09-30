@@ -2,7 +2,7 @@
 
 - [ ] 로또 Lotto
   - [x] 여섯 개인지 검증 - validateCounts()
-  - [ ] 로또 번호에 중복된 숫자가 있는지 검증 - validateDuplication()
+  - [x] 로또 번호에 중복된 숫자가 있는지 검증 - validateDuplication()
   - [ ] 정답과 비교 후 등수 반환 - calculateRank()
 - [ ] 로또 판매기 Seller
   - [ ] 로또 발행 - getLottoNums()
