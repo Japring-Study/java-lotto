@@ -1,7 +1,9 @@
 package lotto;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Lotto {
     private final List<Integer> numbers;
@@ -29,7 +31,28 @@ public class Lotto {
     }
 
     public int calculateRank(List<Integer> answers, int bonus) {
-        return 0;
+
+        Set<Integer> set = new HashSet<>(numbers);
+
+        int correct = (int) answers.stream()
+                .filter(set::contains)
+                .count();
+
+        int bonusCorrect = set.contains(bonus) && correct == 5 ? 1 : 0;
+
+        return rankByCondition(correct, bonusCorrect);
+    }
+
+    private int rankByCondition(int correct, int bonusCorrect) {
+        if (correct == 6) {
+            return 1;
+        }
+
+        if (correct + bonusCorrect <= 2) {
+            return 6;
+        }
+
+        return 8 - (correct + bonusCorrect);
     }
 
 }
