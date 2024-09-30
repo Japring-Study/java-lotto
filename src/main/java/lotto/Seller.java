@@ -1,5 +1,7 @@
 package lotto;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.List;
 
 public class Seller {
@@ -15,7 +17,7 @@ public class Seller {
     }
 
     public Lotto getLotto() {
-        return null;
+        return new Lotto(Randoms.pickUniqueNumbersInRange(1, 45, 6));
     }
 
     public List<Lotto> getLottos(int count) {
@@ -26,7 +28,7 @@ public class Seller {
         return null;
     }
 
-    public double calculateRate(List<Integer> ranks) {
+    public double calculateRate(List<Integer> ranks, int count) {
         return 0D;
     }
 }
