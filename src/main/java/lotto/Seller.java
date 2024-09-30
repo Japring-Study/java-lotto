@@ -10,6 +10,7 @@ import java.util.stream.IntStream;
 public class Seller {
 
     private final int lottoPrice;
+    private static final List<Integer> prize = List.of(2_000_000_000, 30_000_000, 1_500_000, 50_000, 5_000, 0);
 
     public Seller(int lottoPrice) {
         this.lottoPrice = lottoPrice;
@@ -40,6 +41,12 @@ public class Seller {
     }
 
     public double calculateRate(List<Integer> ranks, int count) {
-        return 0D;
+
+        long prizeSum = IntStream.range(0, 6)
+                .mapToLong(index -> (long) ranks.get(index) * prize.get(index))
+                .sum();
+        int cost = lottoPrice * count;
+
+        return prizeSum / (double) cost;
     }
 }

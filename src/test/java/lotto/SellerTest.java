@@ -108,7 +108,7 @@ class SellerTest {
         //given
         List<Integer> result = List.of(1, 1, 0, 0, 0, 0);
         int count = 2;
-        int expectedRate = 2_000_000_000 + 30_000_000 / 2_000;
+        int expectedRate = (2_000_000_000 + 30_000_000) / 2_000;
 
         final int lottoPrice = 1_000;
         Seller seller = new Seller(lottoPrice);
