@@ -18,6 +18,14 @@ public class Seller {
         this.lottoPrice = lottoPrice;
     }
 
+    public int parsePurchaseMoneyStr(String purchaseMoneyStr) {
+        try {
+            return Integer.parseInt(purchaseMoneyStr);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("입력은 1000으로 나눠지는 값이어야 합니다.");
+        }
+    }
+
     public int calculateLottoCount(int money) {
         return money / lottoPrice;
     }

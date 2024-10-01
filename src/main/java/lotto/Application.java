@@ -8,18 +8,24 @@ public class Application {
 
     public static void main(String[] args) {
 
-        int purchaseMoney = UI.receivePurchaseMoney();
+        String purchaseMoneyStr = UI.receivePurchaseMoney();
         Seller seller = new Seller(LOTTO_PRICE);
 
-        int purchaseCount = seller.calculateLottoCount(purchaseMoney);
-        List<Lotto> lottos = seller.getLottos(purchaseCount);
-        UI.printBoughtLottos(lottos);
+        try {
+            int purchaseCount = seller.calculateLottoCount(seller.parsePurchaseMoneyStr(purchaseMoneyStr));
 
-        List<Integer> answers = UI.receiveAnswers();
-        int bonus = UI.receiveBonus();
+            List<Lotto> lottos = seller.getLottos(purchaseCount);
+            UI.printBoughtLottos(lottos);
 
-        List<Integer> result = seller.getResult(lottos, answers, bonus);
-        UI.printResult(result);
-        UI.printRate(seller.calculateRate(result, purchaseCount));
+            List<Integer> answers = UI.receiveAnswers();
+            int bonus = UI.receiveBonus();
+
+            List<Integer> result = seller.getResult(lottos, answers, bonus);
+            UI.printResult(result);
+            UI.printRate(seller.calculateRate(result, purchaseCount));
+        } catch (IllegalArgumentException e) {
+            UI.handlingIllegalArgumentException(e);
+        }
+
     }
 }

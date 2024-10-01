@@ -18,9 +18,9 @@ public class UI {
             5, "3개 일치 (5,000원)"
     );
 
-    public static int receivePurchaseMoney() {
+    public static String receivePurchaseMoney() {
         System.out.println("구입금액을 입력해 주세요.");
-        return Integer.parseInt(Console.readLine());
+        return Console.readLine();
     }
 
     public static void printBoughtLottos(List<Lotto> lottos) {
@@ -54,5 +54,9 @@ public class UI {
 
     public static void printRate(BigDecimal rate) {
         System.out.println("총 수익률은 " + rate.toPlainString() + "%입니다.");
+    }
+
+    public static void handlingIllegalArgumentException(IllegalArgumentException e) {
+        System.out.println("[ERROR] " + e.getMessage());
     }
 }
