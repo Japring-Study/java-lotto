@@ -2,10 +2,7 @@ package lotto.controller;
 
 import lotto.InputView;
 import lotto.Lotto;
-import lotto.domain.Bonus;
-import lotto.domain.Budget;
-import lotto.domain.Lottos;
-import lotto.domain.WinningLotto;
+import lotto.domain.*;
 import lotto.domain.strategy.LottoGenerateStrategy;
 import lotto.domain.strategy.LottoGenerator;
 import lotto.domain.strategy.UserLottoGenerateStrategy;
@@ -18,6 +15,8 @@ public class LottoController {
     public void runMachine() {
         final Lottos userLottos = buyLotto();
         final WinningLotto winningLotto = drawLotto();
+        final WinningStatistics winningStatistics = makeStatistics(userLottos, winningLotto);
+        OutputView.printWinningStaticstics(winningStatistics);
     }
 
     private Lottos buyLotto() {
@@ -63,7 +62,11 @@ public class LottoController {
         }
     }
 
-    public void setLottoGeneratorStrategy(LottoGenerateStrategy lottoGenerateStrategy) {
+    private WinningStatistics makeStatistics(final Lottos userLottos, final WinningLotto winningLotto) {
+        return WinningStatistics.of(userLottos, winningLotto, budget);
+    }
+
+    public void setLottoGeneratorStrategy(final LottoGenerateStrategy lottoGenerateStrategy) {
         this.lottoGenerator.setLottoGenerateStrategy(lottoGenerateStrategy);
     }
 }
