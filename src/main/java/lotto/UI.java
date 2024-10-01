@@ -2,6 +2,7 @@ package lotto;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -51,7 +52,7 @@ public class UI {
         }
     }
 
-    public static void printRate(double rate) {
-        System.out.println("총 수익률은 " + rate + "%입니다.");
+    public static void printRate(BigDecimal rate) {
+        System.out.println("총 수익률은 " + rate.toPlainString() + "%입니다.");
     }
 }

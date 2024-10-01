@@ -5,6 +5,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.util.CollectionUtils;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomUniqueNumbersInRangeTest;
@@ -129,16 +131,16 @@ class SellerTest {
         //given
         List<Integer> result = List.of(1, 1, 0, 0, 0, 0);
         int count = 2;
-        int expectedRate = (2_000_000_000 + 30_000_000) / 2_000;
+        double expectedRate = (2_000_000_000 + 30_000_000) / (double) 2_000 * 100;
 
         final int lottoPrice = 1_000;
         Seller seller = new Seller(lottoPrice);
 
         //when
-        double rate = seller.calculateRate(result, count);
+        BigDecimal rate = seller.calculateRate(result, count);
 
         //then
-        assertThat(rate).isEqualTo(expectedRate);
+        assertThat(rate.doubleValue()).isEqualTo(expectedRate);
     }
 
     @DisplayName("수익률은 소수점 둘째자리에서 반올림")
@@ -152,12 +154,9 @@ class SellerTest {
         Seller seller = new Seller(lottoPrice);
 
         //when
-        double rate = seller.calculateRate(result, count);
+        BigDecimal rate = seller.calculateRate(result, count);
 
         //then
-        String rateStr = String.valueOf(rate);
-        String decimal = rateStr.split("\\.")[1];
-
-        assertThat(decimal.length()).isEqualTo(1);
+        assertThat(rate.toPlainString().split("\\.")[1].length()).isEqualTo(1);
     }
 }

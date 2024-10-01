@@ -2,6 +2,7 @@ package lotto;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -43,15 +44,14 @@ public class Seller {
         return result;
     }
 
-    public double calculateRate(List<Integer> ranks, int count) {
+    public BigDecimal calculateRate(List<Integer> ranks, int count) {
 
         long prizeSum = IntStream.range(0, 6)
                 .mapToLong(index -> (long) ranks.get(index) * prize.get(index))
                 .sum();
         int cost = lottoPrice * count;
 
-        double rate = prizeSum / (double) cost;
-
-        return (double) Math.round(rate * 10) / 10;
+        double rate = prizeSum * 100 / (double) cost;
+        return new BigDecimal(rate).setScale(1, BigDecimal.ROUND_HALF_UP);
     }
 }
