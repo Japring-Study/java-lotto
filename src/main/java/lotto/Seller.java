@@ -50,6 +50,8 @@ public class Seller {
                 .sum();
         int cost = lottoPrice * count;
 
-        return prizeSum / (double) cost;
+        double rate = prizeSum / (double) cost;
+
+        return (double) Math.round(rate * 10) / 10;
     }
 }
