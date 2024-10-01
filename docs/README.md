@@ -1,0 +1,22 @@
+## 기능 목록
+
+- [x] 로또 Lotto
+  - [x] 여섯 개인지 검증 - validateCounts()
+  - [x] 로또 번호에 중복된 숫자가 있는지 검증 - validateDuplication()
+  - [x] 정답과 비교 후 등수 반환 - calculateRank()
+    - [x] 3항 연산자 제거
+- [x] 로또 판매기 Seller
+  - [x] 금액에 받아 구매 가능한 로또 개수 반환 - calculateLottoCount()
+  - [x] 로또 발행 - getLotto()
+    - [x] 오름차순으로 발행
+  - [x] 개수만큼 로또 발행 - getLottos()
+  - [x] 로또 당첨 통계 반환 - getResult()
+  - [x] 수익률 계산 - calculateRate()
+    - [x] 수익률은 소수점 둘째자리에서 반올림
+- [x] UI
+  - [x] 구입금액 입력받기 - receivePurchaseMoney()
+  - [x] 구매한 로또 출력 - printBoughtLottos()
+  - [x] 당첨 번호 입력받기 - receiveAnswers()
+  - [x] 보너스 번호 입력받기 - receiveBonus()
+  - [x] 당첨 통계 출력 - printResult()
+  - [x] 수익률 출력 - printRate()

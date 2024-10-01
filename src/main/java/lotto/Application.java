@@ -1,7 +1,31 @@
 package lotto;
 
+import java.util.List;
+
 public class Application {
+
+    public static final int LOTTO_PRICE = 1_000;
+
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+
+        String purchaseMoneyStr = UI.receivePurchaseMoney();
+        Seller seller = new Seller(LOTTO_PRICE);
+
+        try {
+            int purchaseCount = seller.calculateLottoCount(seller.parsePurchaseMoneyStr(purchaseMoneyStr));
+
+            List<Lotto> lottos = seller.getLottos(purchaseCount);
+            UI.printBoughtLottos(lottos);
+
+            List<Integer> answers = UI.receiveAnswers();
+            int bonus = UI.receiveBonus();
+
+            List<Integer> result = seller.getResult(lottos, answers, bonus);
+            UI.printResult(result);
+            UI.printRate(seller.calculateRate(result, purchaseCount));
+        } catch (IllegalArgumentException e) {
+            UI.handlingIllegalArgumentException(e);
+        }
+
     }
 }
