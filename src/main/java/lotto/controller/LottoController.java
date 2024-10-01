@@ -19,6 +19,8 @@ public class LottoController {
         try {
             budget = Budget.from(InputView.getBudgetInput());
             setLottoGeneratorStrategy(new UserLottoGenerateStrategy());
+            Lottos userMultipleLottos = lottoGenerator.generateLottosByBudget(budget);
+            return userMultipleLottos;
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return buyLotto();
