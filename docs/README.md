@@ -10,9 +10,10 @@
   - [x] 개수만큼 로또 발행 - getLottos()
   - [x] 로또 당첨 통계 반환 - getResult()
   - [x] 수익률 계산 - calculateRate()
-- [ ] UI
-  - [ ] 구입금액 입력받기 - receivePurchaseMoney()
-  - [ ] 구매한 로또 출력 - printBoughtLottos()
-  - [ ] 당첨 번호 입력받기 - receiveAnswers()
-  - [ ] 보너스 번호 입력받기 - receiveBonus()
-  - [ ] 당첨 통계 출력 - printResult()
+- [x] UI
+  - [x] 구입금액 입력받기 - receivePurchaseMoney()
+  - [x] 구매한 로또 출력 - printBoughtLottos()
+  - [x] 당첨 번호 입력받기 - receiveAnswers()
+  - [x] 보너스 번호 입력받기 - receiveBonus()
+  - [x] 당첨 통계 출력 - printResult()
+  - [x] 수익률 출력 - printRate()

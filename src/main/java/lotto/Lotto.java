@@ -55,4 +55,8 @@ public class Lotto {
         return 8 - (correct + bonusCorrect);
     }
 
+    @Override
+    public String toString() {
+        return numbers.toString();
+    }
 }
