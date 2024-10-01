@@ -4,7 +4,7 @@
   - [x] 여섯 개인지 검증 - validateCounts()
   - [x] 로또 번호에 중복된 숫자가 있는지 검증 - validateDuplication()
   - [x] 정답과 비교 후 등수 반환 - calculateRank()
-    - [ ] 3항 연산자 제거
+    - [x] 3항 연산자 제거
 - [x] 로또 판매기 Seller
   - [x] 금액에 받아 구매 가능한 로또 개수 반환 - calculateLottoCount()
   - [x] 로또 발행 - getLotto()

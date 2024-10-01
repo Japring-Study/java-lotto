@@ -34,13 +34,23 @@ public class Lotto {
 
         Set<Integer> set = new HashSet<>(numbers);
 
-        int correct = (int) answers.stream()
-                .filter(set::contains)
-                .count();
-
-        int bonusCorrect = set.contains(bonus) && correct == 5 ? 1 : 0;
+        int correct = getCorrect(answers, set);
+        int bonusCorrect = getBonusCorrect(bonus, set, correct);
 
         return rankByCondition(correct, bonusCorrect);
+    }
+
+    private static int getCorrect(List<Integer> answers, Set<Integer> set) {
+        return (int) answers.stream()
+                .filter(set::contains)
+                .count();
+    }
+
+    private static int getBonusCorrect(int bonus, Set<Integer> set, int correct) {
+        if (set.contains(bonus) && correct == 5) {
+            return 1;
+        }
+        return 0;
     }
 
     private int rankByCondition(int correct, int bonusCorrect) {
