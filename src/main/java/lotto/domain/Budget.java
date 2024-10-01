@@ -13,7 +13,36 @@ public class Budget {
     }
 
     public static Budget from(final String inputBudget) {
+        validateNumeric(inputBudget);
         int budget = Integer.parseInt(inputBudget);
         return new Budget(budget);
+    }
+
+    private static void validateNumeric(final String inputBudget) {
+        try {
+            Integer.parseInt(inputBudget);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(NUMBER_FORMAT_EXCEPTION_MESSAGE, e);
+        }
+    }
+
+    private static void validateDivideResultIsZero(final int inputBudget) {
+        if(inputBudget % LOTTO_UNIT_PRICE != ZERO) {
+            throw new IllegalArgumentException(String.format(DIVIDE_EXCEPTION_MESSAGE, LOTTO_UNIT_PRICE));
+        }
+    }
+
+    private static void validateLowerPrice(final int inputBudget) {
+        if(inputBudget < LOTTO_UNIT_PRICE) {
+            throw new IllegalArgumentException(String.format(MINIMUM_PRICE_EXCEPTION_MESSAGE, LOTTO_UNIT_PRICE));
+        }
+    }
+
+    public int getCountOfLottoLines()  {
+        return budget / LOTTO_UNIT_PRICE;
+    }
+
+    public int getBudget() {
+        return budget;
     }
 }
