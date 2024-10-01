@@ -49,6 +49,27 @@ class SellerTest {
         );
     }
 
+    @DisplayName("발행된 로또는 오름차순이어야한다.")
+    @Test
+    void getLotto_Ascending() {
+        //given
+        List<Integer> answers = List.of(8, 21, 23, 41, 42, 43);
+        List<Integer> unsortedAnswers = List.of(42, 21, 43, 41, 8, 23);
+        final int lottoPrice = 1_000;
+        Seller seller = new Seller(lottoPrice);
+
+        assertRandomUniqueNumbersInRangeTest(
+                () -> {
+                    //when
+                    Lotto lotto = seller.getLotto();
+
+                    //then
+                    assertThat(lotto.toString()).isEqualTo(answers.toString());
+                },
+                unsortedAnswers
+        );
+    }
+
     @DisplayName("개수만큼의 로또를 반환한다.")
     @Test
     void getLottos() {
@@ -118,5 +139,25 @@ class SellerTest {
 
         //then
         assertThat(rate).isEqualTo(expectedRate);
+    }
+
+    @DisplayName("수익률은 소수점 둘째자리에서 반올림")
+    @Test
+    void calculateRate_decimal() {
+        //given
+        List<Integer> result = List.of(1, 1, 0, 0, 0, 0);
+        int count = 3;
+
+        final int lottoPrice = 1_000;
+        Seller seller = new Seller(lottoPrice);
+
+        //when
+        double rate = seller.calculateRate(result, count);
+
+        //then
+        String rateStr = String.valueOf(rate);
+        String decimal = rateStr.split("\\.")[1];
+
+        assertThat(decimal.length()).isEqualTo(1);
     }
 }
