@@ -10,8 +10,8 @@ import lotto.domain.strategy.WinningLottoGenerateStrategy;
 import lotto.view.OutputView;
 
 public class LottoController {
+    private final LottoGenerator lottoGenerator = new LottoGenerator();
     private Budget budget;
-    private LottoGenerator lottoGenerator = new LottoGenerator();
 
     public void runMachine() {
         final Lottos userLottos = buyLotto();
