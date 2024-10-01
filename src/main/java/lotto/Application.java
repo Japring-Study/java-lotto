@@ -3,10 +3,13 @@ package lotto;
 import java.util.List;
 
 public class Application {
+
+    public static final int LOTTO_PRICE = 1_000;
+
     public static void main(String[] args) {
 
         int purchaseMoney = UI.receivePurchaseMoney();
-        Seller seller = new Seller(1000);
+        Seller seller = new Seller(LOTTO_PRICE);
 
         int purchaseCount = seller.calculateLottoCount(purchaseMoney);
         List<Lotto> lottos = seller.getLottos(purchaseCount);

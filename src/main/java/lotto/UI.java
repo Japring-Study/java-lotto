@@ -4,9 +4,18 @@ import camp.nextstep.edu.missionutils.Console;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class UI {
+
+    private static final Map<Integer, String> resultOutputByRank = Map.of(
+            1, "6개 일치 (2,000,000,000원)",
+            2, "5개 일치, 보너스 볼 일치 (30,000,000원)",
+            3, "5개 일치 (1,500,000원)",
+            4, "4개 일치 (50,000원)",
+            5, "3개 일치 (5,000원)"
+    );
 
     public static int receivePurchaseMoney() {
         System.out.println("구입금액을 입력해 주세요.");
@@ -38,11 +47,11 @@ public class UI {
         System.out.println("---");
 
         for (int index = 4; index >= 0; index--) {
-            System.out.println(" - " + result.get(index) + "개");
+            System.out.println(resultOutputByRank.get(index + 1) + " - " + result.get(index) + "개");
         }
     }
 
     public static void printRate(double rate) {
-        System.out.println("총 수익률은 " + rate + "입니다.");
+        System.out.println("총 수익률은 " + rate + "%입니다.");
     }
 }
