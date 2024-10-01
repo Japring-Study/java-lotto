@@ -7,9 +7,12 @@
 - [x] 로또 판매기 Seller
   - [x] 금액에 받아 구매 가능한 로또 개수 반환 - calculateLottoCount()
   - [x] 로또 발행 - getLotto()
+    - [ ] 오름차순으로 발행
   - [x] 개수만큼 로또 발행 - getLottos()
   - [x] 로또 당첨 통계 반환 - getResult()
   - [x] 수익률 계산 - calculateRate()
+    - [ ] 수익률은 소수점 둘째자리에서 반올림
+    - [ ] 3항 연산자 제거
 - [x] UI
   - [x] 구입금액 입력받기 - receivePurchaseMoney()
   - [x] 구매한 로또 출력 - printBoughtLottos()
