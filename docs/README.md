@@ -7,7 +7,7 @@
 - [x] 로또 판매기 Seller
   - [x] 금액에 받아 구매 가능한 로또 개수 반환 - calculateLottoCount()
   - [x] 로또 발행 - getLotto()
-    - [ ] 오름차순으로 발행
+    - [x] 오름차순으로 발행
   - [x] 개수만큼 로또 발행 - getLottos()
   - [x] 로또 당첨 통계 반환 - getResult()
   - [x] 수익률 계산 - calculateRate()
