@@ -11,4 +11,13 @@ public class InputView {
         System.out.println(REQUIRE_BUDGET_MESSAGE);
         return Console.readLine();
     }
+    public static String getBonusInput() {
+        System.out.println(REQUIRE_BONUS_MESSAGE);
+        return Console.readLine();
+    }
+
+    public static void printRequireWinningNumbersMessage() {
+        System.out.println(REQUIRE_WINNING_NUMBERS_MESSAGE);
+    }
+
 }
