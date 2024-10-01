@@ -1,12 +1,13 @@
 package lotto.controller;
 
-import lotto.InputView;
-import lotto.Lotto;
+import lotto.view.InputView;
+import lotto.domain.Lotto;
 import lotto.domain.*;
 import lotto.domain.strategy.LottoGenerateStrategy;
 import lotto.domain.strategy.LottoGenerator;
 import lotto.domain.strategy.UserLottoGenerateStrategy;
 import lotto.domain.strategy.WinningLottoGenerateStrategy;
+import lotto.view.OutputView;
 
 public class LottoController {
     private Budget budget;

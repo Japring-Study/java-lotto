@@ -1,7 +1,5 @@
 package lotto.domain;
 
-import lotto.Lotto;
-
 import java.math.BigDecimal;
 import java.util.EnumMap;
 import java.util.List;

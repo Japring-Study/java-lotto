@@ -1,6 +1,6 @@
 package lotto.domain.strategy;
 
-import lotto.Lotto;
+import lotto.domain.Lotto;
 
 public interface LottoGenerateStrategy {
     int MIN_NUMBER = 1;

@@ -1,7 +1,7 @@
 package lotto.domain.strategy;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import lotto.Lotto;
+import lotto.domain.Lotto;
 
 public class UserLottoGenerateStrategy implements LottoGenerateStrategy {
     @Override

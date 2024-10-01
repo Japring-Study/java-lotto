@@ -1,6 +1,6 @@
 package lotto.domain.strategy;
 
-import lotto.Lotto;
+import lotto.domain.Lotto;
 import lotto.domain.Budget;
 import lotto.domain.Lottos;
 
