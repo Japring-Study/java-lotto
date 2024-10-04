@@ -4,22 +4,19 @@ import java.util.List;
 
 public class LottoOutputView {
 
-    public void printLotto(List<Lotto> lottoList) {
-        System.out.println(lottoList.size() + "개를 구매했습니다.");
-        for(Lotto lotto : lottoList) {
-            System.out.println(lotto);
+    public void printLotto(int numberOfLotto, List<List<Integer>> lottoNumbersList) {
+        System.out.println(numberOfLotto + "개를 구매했습니다.");
+        for (List<Integer> lottoNumbers : lottoNumbersList) {
+            System.out.println(lottoNumbers);
         }
         System.out.println();
     }
 
-    public void printWinningStatistics(LottoResult result) {
+    public void printWinningStatistics(List<String> rankDescriptions, List<Integer> rankCounts) {
         System.out.println("당첨 통계");
         System.out.println("---");
-        for (LottoRank lottoRank : LottoRank.values()) {
-            if (lottoRank != LottoRank.NONE) {
-                //println (X) print(X) printf(O)
-                System.out.printf("%s - %d개\n", lottoRank.getDescription(), result.getCountForRank(lottoRank));
-            }
+        for (int i = 0; i < rankDescriptions.size(); i++) {
+            System.out.printf("%s - %d개\n", rankDescriptions.get(i), rankCounts.get(i));
         }
     }
 
