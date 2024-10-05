@@ -20,7 +20,7 @@ public enum LottoRank {
         this.description = description;
     }
 
-    public static LottoRank getRank(int count, boolean bonusMatch) {
+    public static LottoRank findMatchingRank(int count, boolean bonusMatch) {
         return Arrays.stream(values()) //모든 LottoRank 값을 스트림으로 변환
                 .filter(rank -> rank.matchCount == count)
                 .filter(rank -> rank != SECOND || (rank == SECOND && bonusMatch))

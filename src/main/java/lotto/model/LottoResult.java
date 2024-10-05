@@ -9,20 +9,29 @@ public class LottoResult {
     private final HashMap<LottoRank, Integer> rankCounts;
 
     public LottoResult() {
-        this.rankCounts = new HashMap<LottoRank, Integer>();
+        this.rankCounts = new HashMap<>();
         for (LottoRank lottoRank : LottoRank.values()) {
             rankCounts.put(lottoRank, 0);
         }
     }
 
+    /**
+     * 당첨 결과를 추가
+     */
     public void addResult(LottoRank rank) {
         rankCounts.put(rank, rankCounts.get(rank) + 1); //현재 랭크 갯수보다 하나 업
     }
 
+    /**
+     * 특정 랭크의 당첨 개수 반환
+     */
     public int getCountForRank(LottoRank lottoRank) {
         return rankCounts.get(lottoRank);
     }
 
+    /**
+     * 전체 상금 합계 반환
+     */
     public long getTotalPrize() {
         return rankCounts.entrySet().stream()
                 .mapToLong(entry -> entry.getKey().getPrize() * entry.getValue())
@@ -30,7 +39,7 @@ public class LottoResult {
     }
 
     /**
-     * 랭크 설명 리스트를 LottoRank의 역순서대로 반환
+     * 랭크 설명을 역순으로 반환
      */
     public List<String> getRankDescriptions() {
         return rankCounts.keySet().stream()
@@ -41,7 +50,7 @@ public class LottoResult {
     }
 
     /**
-     * 각 랭크의 개수를 LottoRank의 역순서대로 리스트로 반환
+     * 각 랭크의 당첨 개수를 역순으로 반환
      */
     public List<Integer> getRankCounts() {
         return rankCounts.entrySet().stream()

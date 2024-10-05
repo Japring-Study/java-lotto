@@ -12,6 +12,7 @@ public class GameController {
     private final LottoInputView lottoInputView;
     private final LottoController lottoService;
     private final LottoOutputView lottoOutputView;
+    private static final int LOTTO_PRICE = 1000;
 
     public GameController() {
         this.lottoService = new LottoController();
@@ -24,7 +25,7 @@ public class GameController {
      */
     public void start() {
         int money = lottoInputView.receiveUserMoneyInput();
-        List<Lotto> lottoList = lottoService.generateLottoNumber(money / 1000);
+        List<Lotto> lottoList = lottoService.generateLottoNumber(money / LOTTO_PRICE);
         lottoOutputView.printLotto(lottoList.size(), lottoList.stream()
                 .map(Lotto::getNumbers)
                 .collect(Collectors.toList()));
