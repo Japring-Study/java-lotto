@@ -1,11 +1,14 @@
-package lotto;
+package lotto.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import lotto.model.Lotto;
+import lotto.model.LottoRank;
+import lotto.model.LottoResult;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LottoService {
+public class LottoController {
 
     /**
      * 6개의 숫자 생성

@@ -1,13 +1,11 @@
-package lotto;
+package lotto.view;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import static lotto.LottoParser.parseNumbers;
-import static lotto.LottoValidator.*;
+import static lotto.util.LottoParser.parseNumbers;
+import static lotto.util.LottoValidator.*;
 
 public class LottoInputView {
 

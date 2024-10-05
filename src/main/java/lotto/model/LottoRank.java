@@ -1,4 +1,4 @@
-package lotto;
+package lotto.model;
 
 public enum LottoRank {
     FIRST(6, 2_000_000_000, "6개 일치 (2,000,000,000원)"),

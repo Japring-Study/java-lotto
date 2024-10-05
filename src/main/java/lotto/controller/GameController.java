@@ -1,15 +1,20 @@
-package lotto;
+package lotto.controller;
+
+import lotto.view.LottoInputView;
+import lotto.view.LottoOutputView;
+import lotto.model.Lotto;
+import lotto.model.LottoResult;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class GameManager {
+public class GameController {
     private final LottoInputView lottoInputView;
-    private final LottoService lottoService;
+    private final LottoController lottoService;
     private final LottoOutputView lottoOutputView;
 
-    public GameManager() {
-        this.lottoService = new LottoService();
+    public GameController() {
+        this.lottoService = new LottoController();
         this.lottoOutputView = new LottoOutputView();
         this.lottoInputView = new LottoInputView();
     }
