@@ -1,5 +1,7 @@
 package lotto.model;
 
+import java.util.Arrays;
+
 public enum LottoRank {
     FIRST(6, 2_000_000_000, "6개 일치 (2,000,000,000원)"),
     SECOND(5, 30_000_000, "5개 일치, 보너스 볼 일치 (30,000,000원)"),
@@ -18,13 +20,12 @@ public enum LottoRank {
         this.description = description;
     }
 
-    public static LottoRank getRank(int matchCount, boolean bonusMatch) {
-        if (matchCount == 6) return FIRST;
-        else if (matchCount == 5 && bonusMatch) return SECOND;
-        else if (matchCount == 5) return THIRD;
-        else if (matchCount == 4) return FOURTH;
-        else if (matchCount == 3) return FIFTH;
-        return NONE;
+    public static LottoRank getRank(int count, boolean bonusMatch) {
+        return Arrays.stream(values()) //모든 LottoRank 값을 스트림으로 변환
+                .filter(rank -> rank.matchCount == count)
+                .filter(rank -> rank != SECOND || (rank == SECOND && bonusMatch))
+                .findFirst()
+                .orElse(NONE);
     }
 
     public String getDescription() {
